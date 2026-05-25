@@ -1,4 +1,5 @@
 extends CollisionShape2D
+@onready var character_body_2d: CharacterBody2D = $".."
 
 
 # Called when the node enters the scene tree for the first time.

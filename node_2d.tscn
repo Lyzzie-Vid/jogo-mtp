@@ -1,39 +1,11 @@
 [gd_scene format=3 uid="uid://buhaf7us3252g"]
 
-[ext_resource type="Texture2D" uid="uid://b4juct0tq8d30" path="res://protagonista/andando.png" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://cpsvgf5nr1teo" path="res://protagonista.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="2_epypp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb6jw"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(0, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wsr85"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(68, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1qlf7"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(136, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdmr0"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(204, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_coxc2"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(272, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j03ur"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(340, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7g86m"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(408, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p31o1"]
-atlas = ExtResource("1_0e48y")
-region = Rect2(476, 0, 68, 68)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
+radius = 14.0
+height = 44.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnxje"]
 atlas = ExtResource("2_epypp")
@@ -53,34 +25,10 @@ region = Rect2(204, 0, 68, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0hol4"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gb6jw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wsr85")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1qlf7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vdmr0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_coxc2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j03ur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7g86m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p31o1")
-}],
+"frames": [],
 "loop": true,
-"name": &"andando",
-"speed": 8.0
+"name": &"new_animation",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,8 +52,11 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1740279201]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1587989223]
+shape = SubResource("CapsuleShape2D_epypp")
+script = ExtResource("1_0e48y")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=581124097]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0hol4")
-animation = &"andando"
-frame_progress = 0.2815982
+animation = &"new_animation"

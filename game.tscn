@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://djf347aw6arog"]
+
+[ext_resource type="PackedScene" uid="uid://7srvelsgb2du" path="res://protagonista.tscn" id="1_80nbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwb40"]
+size = Vector2(345, 49)
+
+[node name="game" type="Node2D" unique_id=387413851]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1966657230]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=72734667]
+position = Vector2(166, 638)
+shape = SubResource("RectangleShape2D_mwb40")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=237571927]
+position = Vector2(550, 638)
+shape = SubResource("RectangleShape2D_mwb40")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1578568802]
+position = Vector2(934, 608)
+shape = SubResource("RectangleShape2D_mwb40")
+
+[node name="protagonista" parent="." unique_id=1892554054 instance=ExtResource("1_80nbo")]
