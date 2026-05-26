@@ -141,7 +141,7 @@ shape = SubResource("CapsuleShape2D_xl4ta")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p31o1")
 animation = &"pulando"
-frame_progress = 0.25898206
+frame_progress = 0.073203795
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1023052599]
 zoom = Vector2(2, 2)
