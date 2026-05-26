@@ -18,6 +18,7 @@ position = Vector2(550, 638)
 shape = SubResource("RectangleShape2D_mwb40")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1578568802]
+texture_filter = 1
 position = Vector2(934, 608)
 shape = SubResource("RectangleShape2D_mwb40")
 

@@ -134,10 +134,17 @@ animations = [{
 script = ExtResource("1_38q5f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902469359]
+visible = false
 shape = SubResource("CapsuleShape2D_xl4ta")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=580267906]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p31o1")
-animation = &"caindo"
+animation = &"pulando"
+frame_progress = 0.25898206
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1023052599]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_bottom = 648
+position_smoothing_enabled = true
