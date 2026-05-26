@@ -1,43 +1,43 @@
 [gd_scene format=3 uid="uid://7srvelsgb2du"]
 
 [ext_resource type="Script" uid="uid://drbshkvscc8j3" path="res://player.gd" id="1_38q5f"]
-[ext_resource type="Texture2D" uid="uid://b4juct0tq8d30" path="res://protagonista/andando.png" id="2_kbydu"]
+[ext_resource type="Texture2D" uid="uid://cal5xmicck1xy" path="res://protagonista/correndo2.png" id="2_kbydu"]
 [ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="3_5kdpw"]
 [ext_resource type="Texture2D" uid="uid://dgdi5g4bqe830" path="res://protagonista/pulando1.png" id="3_kbydu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xl4ta"]
 radius = 11.0
-height = 50.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i5ss0"]
-atlas = ExtResource("2_kbydu")
-region = Rect2(0, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_38q5f"]
-atlas = ExtResource("2_kbydu")
-region = Rect2(68, 0, 68, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbydu"]
-atlas = ExtResource("2_kbydu")
-region = Rect2(136, 0, 68, 68)
+height = 46.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kdpw"]
 atlas = ExtResource("2_kbydu")
-region = Rect2(204, 0, 68, 68)
+region = Rect2(0, 0, 68, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17k5w"]
 atlas = ExtResource("2_kbydu")
-region = Rect2(272, 0, 68, 68)
+region = Rect2(68, 0, 68, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb6jw"]
 atlas = ExtResource("2_kbydu")
-region = Rect2(340, 0, 68, 68)
+region = Rect2(136, 0, 68, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsr85"]
 atlas = ExtResource("2_kbydu")
-region = Rect2(408, 0, 68, 68)
+region = Rect2(204, 0, 68, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qlf7"]
+atlas = ExtResource("2_kbydu")
+region = Rect2(272, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03edm"]
+atlas = ExtResource("2_kbydu")
+region = Rect2(340, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsclo"]
+atlas = ExtResource("2_kbydu")
+region = Rect2(408, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeeyi"]
 atlas = ExtResource("2_kbydu")
 region = Rect2(476, 0, 68, 68)
 
@@ -69,15 +69,6 @@ region = Rect2(340, 0, 68, 68)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i5ss0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38q5f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kbydu")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5kdpw")
 }, {
 "duration": 1.0,
@@ -91,6 +82,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1qlf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03edm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsclo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeeyi")
 }],
 "loop": true,
 "name": &"andando",
@@ -139,12 +139,13 @@ shape = SubResource("CapsuleShape2D_xl4ta")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=580267906]
 texture_filter = 1
+position = Vector2(0, -0.5)
+scale = Vector2(1, 0.9852941)
 sprite_frames = SubResource("SpriteFrames_p31o1")
-animation = &"pulando"
-frame_progress = 0.073203795
+animation = &"parado"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1023052599]
 zoom = Vector2(2, 2)
 limit_left = 0
-limit_bottom = 648
+limit_bottom = 250
 position_smoothing_enabled = true
