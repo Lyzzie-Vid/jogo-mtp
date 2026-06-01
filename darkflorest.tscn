@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cvk1n2tvoysg8" path="res://sprites/DarkForest1.2/env_ground.png" id="2_1n86c"]
 [ext_resource type="Texture2D" uid="uid://b5078lvi1hfge" path="res://sprites/DarkForest1.2/bgrd_tree5.png" id="3_ycppj"]
 [ext_resource type="Texture2D" uid="uid://blyf73txugepm" path="res://sprites/DarkForest1.2/bgrd_tree4.png" id="4_1n86c"]
+[ext_resource type="Texture2D" uid="uid://bd6t7x55duok5" path="res://sprites/GandalfHardcore FREE Platformer Assets/Snow blizzard sheet frame size 484x274.png" id="4_v1hkn"]
 [ext_resource type="Texture2D" uid="uid://b34vpljfopgw5" path="res://sprites/DarkForest1.2/bgrd_tree2.png" id="5_yio5v"]
 [ext_resource type="Texture2D" uid="uid://cakw8gv7tipus" path="res://sprites/DarkForest1.2/bgrd_tree1.png" id="6_v1hkn"]
+[ext_resource type="Texture2D" uid="uid://xd644rnau7ng" path="res://sprites/GandalfHardcore FREE Platformer Assets/Angel Statue.png" id="8_dejb8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe4f3"]
 texture = ExtResource("2_1n86c")
@@ -540,6 +542,8 @@ texture = ExtResource("2_1n86c")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qe4f3")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_678go"]
+
 [node name="darkflorest" type="Node2D" unique_id=419455553]
 
 [node name="protagonista" parent="." unique_id=1892554054 instance=ExtResource("1_i7ej5")]
@@ -558,6 +562,11 @@ motion_mirroring = Vector2(816, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D/5" unique_id=859119119]
 texture = ExtResource("3_ycppj")
 centered = false
+
+[node name="SnowBlizzardSheetFrameSize484x274" type="Sprite2D" parent="Parallax2D/5" unique_id=614436385]
+physics_interpolation_mode = 1
+position = Vector2(312, 74)
+texture = ExtResource("4_v1hkn")
 
 [node name="4" type="ParallaxLayer" parent="Parallax2D" unique_id=1339081980]
 motion_scale = Vector2(0.2, 0.1)
@@ -590,3 +599,14 @@ motion_mirroring = Vector2(816, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D/1" unique_id=2019155914]
 texture = ExtResource("6_v1hkn")
 centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D/1" unique_id=765276626]
+sprite_frames = SubResource("SpriteFrames_678go")
+
+[node name="SnowBlizzardSheetFrameSize484x275" type="Sprite2D" parent="Parallax2D/1/AnimatedSprite2D" unique_id=593832235]
+position = Vector2(534, -102)
+texture = ExtResource("4_v1hkn")
+
+[node name="AngelStatue" type="Sprite2D" parent="." unique_id=2040118609]
+position = Vector2(277, 208)
+texture = ExtResource("8_dejb8")
