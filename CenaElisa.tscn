@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bj62cjjn56p8n"]
+
+[ext_resource type="PackedScene" uid="uid://coaq0k8x5lphp" path="res://protagonista.tscn" id="1_m8rjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8rjk"]
+size = Vector2(497, 72)
+
+[node name="CenaElisa" type="Node2D" unique_id=122295594]
+
+[node name="protagonista" parent="." unique_id=1892554054 instance=ExtResource("1_m8rjk")]
+position = Vector2(92, 39)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1750080106]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1965849554]
+position = Vector2(248.5, 146)
+shape = SubResource("RectangleShape2D_m8rjk")
