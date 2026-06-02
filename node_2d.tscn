@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3vmy83h02ike"]
+[gd_scene format=3 uid="uid://buhaf7us3252g"]
 
 [ext_resource type="Script" uid="uid://cpsvgf5nr1teo" path="res://protagonista.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="2_epypp"]
