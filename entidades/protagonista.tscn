@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://7srvelsgb2du"]
+
+[ext_resource type="Script" uid="uid://drbshkvscc8j3" path="res://scripts/player.gd" id="1_ct2fg"]
+[ext_resource type="Texture2D" uid="uid://cal5xmicck1xy" path="res://protagonista/correndo2.png" id="1_kbydu"]
+[ext_resource type="Texture2D" uid="uid://dgdi5g4bqe830" path="res://protagonista/pulando1.png" id="2_5kdpw"]
+[ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="3_17k5w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5ss0"]
+radius = 9.0
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb6jw"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsr85"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlf7"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdmr0"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coxc2"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(272, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j03ur"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(340, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g86m"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(408, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p31o1"]
+atlas = ExtResource("1_kbydu")
+region = Rect2(476, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnxje"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(340, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03edm"]
+atlas = ExtResource("3_17k5w")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsclo"]
+atlas = ExtResource("3_17k5w")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeeyi"]
+atlas = ExtResource("3_17k5w")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcjdm"]
+atlas = ExtResource("3_17k5w")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08yp7"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(272, 0, 68, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38q5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb6jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsr85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdmr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coxc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j03ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g86m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p31o1")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnxje")
+}],
+"loop": true,
+"name": &"caindo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03edm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsclo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeeyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcjdm")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08yp7")
+}],
+"loop": true,
+"name": &"pulando",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1770059524 groups=["Player"]]
+script = ExtResource("1_ct2fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1604756859]
+shape = SubResource("CapsuleShape2D_i5ss0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063045169]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_38q5f")
+animation = &"parado"
