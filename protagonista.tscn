@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7srvelsgb2du"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_38q5f"]
+[ext_resource type="Script" uid="uid://drbshkvscc8j3" path="res://player.gd" id="1_38q5f"]
 [ext_resource type="Texture2D" uid="uid://cal5xmicck1xy" path="res://protagonista/correndo2.png" id="2_kbydu"]
 [ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="3_5kdpw"]
 [ext_resource type="Texture2D" uid="uid://dgdi5g4bqe830" path="res://protagonista/pulando1.png" id="3_kbydu"]
@@ -130,7 +130,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="protagonista" type="CharacterBody2D" unique_id=1892554054]
+[node name="protagonista" type="CharacterBody2D" unique_id=1892554054 groups=["Player"]]
 script = ExtResource("1_38q5f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902469359]
@@ -143,9 +143,3 @@ position = Vector2(0, -0.5)
 scale = Vector2(1, 0.9852941)
 sprite_frames = SubResource("SpriteFrames_p31o1")
 animation = &"parado"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1023052599]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_bottom = 250
-position_smoothing_enabled = true

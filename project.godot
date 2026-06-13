@@ -17,8 +17,11 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1000
-window/size/viewport_height=288
+window/size/viewport_width=1148
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -48,5 +51,6 @@ pulo={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
