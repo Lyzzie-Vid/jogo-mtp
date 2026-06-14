@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7srvelsgb2du"]
 
 [ext_resource type="Script" uid="uid://drbshkvscc8j3" path="res://player.gd" id="1_38q5f"]
+[ext_resource type="Texture2D" uid="uid://cccqhptn77end" path="res://protagonista/andando agachado 2.png" id="2_5kdpw"]
 [ext_resource type="Texture2D" uid="uid://cal5xmicck1xy" path="res://protagonista/correndo2.png" id="2_kbydu"]
 [ext_resource type="Texture2D" uid="uid://0vxgbeum117p" path="res://protagonista/parado.png" id="3_5kdpw"]
 [ext_resource type="Texture2D" uid="uid://dgdi5g4bqe830" path="res://protagonista/pulando1.png" id="3_kbydu"]
@@ -8,6 +9,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xl4ta"]
 radius = 11.0
 height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcjdm"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(0, 0, 68, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kdpw"]
 atlas = ExtResource("2_kbydu")
@@ -41,6 +46,30 @@ region = Rect2(408, 0, 68, 68)
 atlas = ExtResource("2_kbydu")
 region = Rect2(476, 0, 68, 68)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_08yp7"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3lgh"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf1wn"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr6an"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl78u"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(272, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp1p8"]
+atlas = ExtResource("2_5kdpw")
+region = Rect2(340, 0, 68, 68)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_p31o1"]
 atlas = ExtResource("3_kbydu")
 region = Rect2(272, 0, 68, 68)
@@ -69,6 +98,14 @@ region = Rect2(340, 0, 68, 68)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qcjdm")
+}],
+"loop": true,
+"name": &"agachado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5kdpw")
 }, {
 "duration": 1.0,
@@ -95,6 +132,29 @@ animations = [{
 "loop": true,
 "name": &"andando",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08yp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3lgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf1wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl78u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp1p8")
+}],
+"loop": true,
+"name": &"andando_agachado",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,4 +202,4 @@ texture_filter = 1
 position = Vector2(0, -0.5)
 scale = Vector2(1, 0.9852941)
 sprite_frames = SubResource("SpriteFrames_p31o1")
-animation = &"parado"
+animation = &"andando_agachado"
