@@ -97,7 +97,7 @@ func estado_andando_agachado():
 		if velocity.x == 0:
 			fica_parado()
 			return
-		if velocity.x > 0:
+		if velocity.x != 0:
 			fica_andando()
 			return
 	if velocity.x == 0:
