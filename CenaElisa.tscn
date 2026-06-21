@@ -11750,6 +11750,7 @@ tile_map_data = PackedByteArray("AACMAX0AAAARADQAAACMAX4AAAARADUAAACMAX8AAAARADY
 tile_set = SubResource("TileSet_mnvxn")
 
 [node name="lareira" type="PointLight2D" parent="lareira2" unique_id=374062688]
+visible = false
 position = Vector2(6345.3125, 1875)
 scale = Vector2(6.494134, 4.003906)
 color = Color(1, 1, 0.4627451, 1)

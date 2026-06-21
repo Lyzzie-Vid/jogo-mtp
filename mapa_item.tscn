@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bq44o22eqd4fu"]
+
+[ext_resource type="Script" uid="uid://drsgwpuhmkek0" path="res://mapa_item.gd" id="1_0m5lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et8cq"]
+
+[node name="MapaItem" type="Area2D" unique_id=111920299]
+script = ExtResource("1_0m5lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=234398750]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_et8cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2093294555]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1553825160]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=17529719]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2032362010]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

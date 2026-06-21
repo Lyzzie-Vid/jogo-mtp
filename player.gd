@@ -28,7 +28,6 @@ func fica_parado():
 func fica_andando():
 	status = EstadoProtagonista.andando
 	anim.play("andando")
-	SPEED = 300.00
 func fica_pulando():
 	status = EstadoProtagonista.pulando		
 	anim.play("pulando")
@@ -46,6 +45,11 @@ func fica_andando_agachado():
 	collision_shape.shape.radius = 9
 	collision_shape.shape.height = 29
 	SPEED = 100.00
+func fica_em_pe():
+	collision_shape.shape.radius = 9
+	collision_shape.shape.height = 47
+	SPEED = 300.00
+
 func estado_parado():
 	move()
 	if velocity.x  != 0:
@@ -85,6 +89,7 @@ func estado_caindo():
 func estado_agachado():
 	move()
 	if Input.is_action_just_released("agachar"):
+		fica_em_pe()
 		fica_parado()
 		return
 	if velocity.x != 0:
@@ -95,9 +100,11 @@ func estado_andando_agachado():
 	move()
 	if Input.is_action_just_released("agachar"):
 		if velocity.x == 0:
+			fica_em_pe()
 			fica_parado()
 			return
 		if velocity.x != 0:
+			fica_em_pe()
 			fica_andando()
 			return
 	if velocity.x == 0:
