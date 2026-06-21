@@ -741,7 +741,7 @@ texture = SubResource("GradientTexture2D_oidef")
 [node name="levelEnd" parent="." unique_id=743665713 instance=ExtResource("7_r1rqd")]
 z_index = 1
 position = Vector2(2582, 233)
-next_level = "darkflorest"
+next_level = "CenaElisa"
 
 [node name="CollisionShape2D" parent="levelEnd" index="0" unique_id=51133096]
 position = Vector2(10, 13)
