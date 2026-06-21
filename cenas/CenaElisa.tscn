@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bj62cjjn56p8n"]
 
-[ext_resource type="PackedScene" uid="uid://7srvelsgb2du" path="res://entidades/protagonista.tscn" id="1_6ph5w"]
 [ext_resource type="PackedScene" uid="uid://7srvelsgb2du" path="res://protagonista.tscn" id="1_6ph5w"]
 [ext_resource type="Texture2D" uid="uid://rcwswf4258bs" path="res://SpritesElisa/WhatsApp Image 2026-06-09 at 14.27.39.jpeg" id="2_mcv84"]
 [ext_resource type="PackedScene" uid="uid://bm10p12v44j4s" path="res://entidades2/camera_2d.tscn" id="3_3u7cg"]
