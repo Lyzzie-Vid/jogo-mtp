@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c3boeckuir5gi"]
+
+[ext_resource type="Script" uid="uid://dkqy03wjudwa5" path="res://scripts/level_end.gd" id="1_6kmj5"]
+[ext_resource type="Texture2D" uid="uid://bw3l00dxmgmg0" path="res://sprites/vila/porta abrindo.png" id="2_dc3h5"]
+[ext_resource type="Texture2D" uid="uid://cte121vv2raw7" path="res://sprites/vila/porta_1178x1396.png" id="2_v5h8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7luy0"]
+size = Vector2(38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kmj5"]
+atlas = ExtResource("2_dc3h5")
+region = Rect2(0, 0, 1127, 1395)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htdiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v5h8s")
+}],
+"loop": true,
+"name": &"fechada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v5h8s")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_6kmj5")
+}],
+"loop": false,
+"name": &"porta abrindo",
+"speed": 5.0
+}]
+
+[node name="levelEnd" type="Area2D" unique_id=743665713]
+script = ExtResource("1_6kmj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51133096]
+position = Vector2(9, 14.5)
+shape = SubResource("RectangleShape2D_7luy0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=374149301]
+position = Vector2(9.000023, 18)
+scale = Vector2(0.033133306, 0.03831351)
+sprite_frames = SubResource("SpriteFrames_htdiw")
+animation = &"porta abrindo"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

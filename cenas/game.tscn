@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b34vpljfopgw5" path="res://sprites/DarkForest1.2/bgrd_tree2.png" id="5_1g7bb"]
 [ext_resource type="Texture2D" uid="uid://cakw8gv7tipus" path="res://sprites/DarkForest1.2/bgrd_tree1.png" id="6_yihqs"]
 [ext_resource type="Texture2D" uid="uid://xd644rnau7ng" path="res://sprites/GandalfHardcore FREE Platformer Assets/Angel Statue.png" id="7_42pun"]
+[ext_resource type="PackedScene" uid="uid://c3boeckuir5gi" path="res://entidades/level_end.tscn" id="8_t320n"]
+[ext_resource type="PackedScene" uid="uid://dcda2dltdwnv5" path="res://entidades/camera.tscn" id="9_b071r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe4f3"]
 texture = ExtResource("2_t320n")
@@ -595,3 +597,15 @@ centered = false
 [node name="AngelStatue" type="Sprite2D" parent="." unique_id=2040118609]
 position = Vector2(273, 225)
 texture = ExtResource("7_42pun")
+
+[node name="levelEnd" parent="." unique_id=743665713 instance=ExtResource("8_t320n")]
+position = Vector2(1137, 185)
+next_level = "vila"
+
+[node name="Camera" parent="." unique_id=695124193 groups=["Player"] instance=ExtResource("9_b071r")]
+position = Vector2(211, 284)
+rotation = -2.4110317
+limit_left = -5
+limit_top = 165
+limit_right = 9999995
+limit_bottom = 444

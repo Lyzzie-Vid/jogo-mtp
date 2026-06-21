@@ -5,7 +5,7 @@ var target: Node2D
 func get_target():
 	var nodes = get_tree().get_nodes_in_group("Player")
 	if nodes.size() == 0:
-		push_error("esqueceu do player")
+		push_error("esqueceu do player carai, vai jogar com o q")
 		return
 	target = nodes[0]
 		
@@ -15,5 +15,6 @@ func _ready() -> void:
 	get_target()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	position = target.position
