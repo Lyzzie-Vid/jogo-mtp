@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bux73gm00ys47"]
 
-[ext_resource type="PackedScene" uid="uid://7srvelsgb2du" path="res://entidades/protagonista.tscn" id="1_pu0lk"]
+[ext_resource type="PackedScene" uid="uid://7srvelsgb2du" path="res://protagonista.tscn" id="1_pu0lk"]
 [ext_resource type="Texture2D" uid="uid://c7828ht765gfq" path="res://sprites/vila/background.png" id="2_pbvoc"]
 [ext_resource type="Texture2D" uid="uid://7q166srb3dyp" path="res://sprites/vila/middleground.png" id="3_ot40p"]
 [ext_resource type="Texture2D" uid="uid://de0hyjb5nghb6" path="res://sprites/vila/tileset.png" id="4_r1rqd"]

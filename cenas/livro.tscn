@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://lcverrqakt35"]
+
+[ext_resource type="Script" uid="uid://c36dy8ajkvmvg" path="res://scripts/livro.gd" id="1_8bo0g"]
+[ext_resource type="Texture2D" uid="uid://cmsqocltt14d1" path="res://SpritesElisa/ChatGPT Image 20 de jun. de 2026, 23_26_33.png" id="1_cluiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w0jo"]
+size = Vector2(62, 10)
+
+[node name="Livro" type="Area2D" unique_id=958038364]
+collision_layer = 4
+script = ExtResource("1_8bo0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246508732]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("1_cluiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1490534371]
+visible = false
+position = Vector2(-2, -3)
+shape = SubResource("RectangleShape2D_4w0jo")
+
+[node name="LabelInteracao" type="Label" parent="." unique_id=236103641]
+offset_left = -109.0
+offset_top = -124.0
+offset_right = 109.0
+offset_bottom = -101.0
+text = "Pressione ENTER para pegar"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

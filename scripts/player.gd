@@ -160,6 +160,14 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	#Sistema da Visão Espiritual
+func _unhandled_input(event: InputEvent) -> void:
+	if not GameState.visao_espiritual_desbloqueada:
+		return
+
+	if event.is_action_pressed("visao_espiritual"):
+
+		GameState.visao_espiritual_ativa = !GameState.visao_espiritual_ativa
 
 		
 	

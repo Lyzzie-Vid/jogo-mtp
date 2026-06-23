@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://gehg7q5upc7p"]
+
+[ext_resource type="Script" uid="uid://bjjjrtms47dlq" path="res://scripts/mapa_ui.gd" id="1_he67d"]
+[ext_resource type="Texture2D" uid="uid://dmr8doc8cltly" path="res://SpritesElisa/ChatGPT Image 23 de jun. de 2026, 07_54_32.png" id="2_ti2if"]
+
+[node name="MapaUI" type="CanvasLayer" unique_id=377553285]
+process_mode = 3
+layer = 10
+script = ExtResource("1_he67d")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=987749043]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1942342606]
+layout_mode = 2
+texture = ExtResource("2_ti2if")
+stretch_mode = 5
