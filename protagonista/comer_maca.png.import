@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de1lih83t4hwi"
-path="res://.godot/imported/WhatsApp Image 2026-06-10 at 14.11.06.jpeg-834cdea19d5134f1c54b62a598e4f21d.ctex"
+uid="uid://1ot16em8o66j"
+path="res://.godot/imported/comer_maca.png-cf845377efb6ee13765e561c1c627533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpritesElisa/WhatsApp Image 2026-06-10 at 14.11.06.jpeg"
-dest_files=["res://.godot/imported/WhatsApp Image 2026-06-10 at 14.11.06.jpeg-834cdea19d5134f1c54b62a598e4f21d.ctex"]
+source_file="res://protagonista/comer_maca.png"
+dest_files=["res://.godot/imported/comer_maca.png-cf845377efb6ee13765e561c1c627533.ctex"]
 
 [params]
 

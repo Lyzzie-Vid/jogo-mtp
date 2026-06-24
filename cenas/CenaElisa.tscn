@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://gehg7q5upc7p" path="res://cenas/MapaUI.tscn" id="7_mcv84"]
 [ext_resource type="Script" uid="uid://d0phthlmc2v18" path="res://scripts/lareira.gd" id="7_pcq0i"]
 [ext_resource type="Script" uid="uid://blxmkd2qo4u7o" path="res://scripts/visao_espiritual.gd" id="8_mcv84"]
+[ext_resource type="Script" uid="uid://c18xedtc42p7b" path="res://scripts/passagem_lareira.gd" id="11_hv7pv"]
+[ext_resource type="Texture2D" uid="uid://cy11dcfyttcgw" path="res://SpritesElisa/Captura de tela 2026-06-23 105840.png" id="12_hv7pv"]
+[ext_resource type="AudioStream" uid="uid://g33ej1cojpi1" path="res://imagens/Main Theme ending.mp3" id="13_ikf75"]
 
 [sub_resource type="Gradient" id="Gradient_eyhph"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -20,30 +23,33 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_g471i"]
+[sub_resource type="Gradient" id="Gradient_pcq0i"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sw12l"]
-gradient = SubResource("Gradient_g471i")
+gradient = SubResource("Gradient_pcq0i")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_sw12l"]
+[sub_resource type="Gradient" id="Gradient_t4es8"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_72el6"]
-gradient = SubResource("Gradient_sw12l")
+gradient = SubResource("Gradient_t4es8")
 fill_from = Vector2(0.11631945, 0.12326389)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcq0i"]
-size = Vector2(12, 24)
+size = Vector2(12, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s07mc"]
+size = Vector2(14, 29)
 
 [node name="DentrodaCasa" type="Node2D" unique_id=296894153]
 script = ExtResource("1_3u7cg")
 
 [node name="protagonista" parent="." unique_id=1892554054 instance=ExtResource("1_6ph5w")]
 z_index = 1
-position = Vector2(463, 139)
+position = Vector2(463, 145)
 
 [node name="Estruturas" type="TileMapLayer" parent="." unique_id=234702211]
 position = Vector2(553.00006, 51.000015)
@@ -126,19 +132,46 @@ visible = false
 [node name="Visão Espiritual" type="CanvasModulate" parent="." unique_id=1178475041]
 color = Color(0.28235295, 0.28627452, 0.35686275, 1)
 script = ExtResource("8_mcv84")
-cor_normal = Color(0, 0, 0, 0)
-cor_visao = Color(0.326011, 0.26974747, 0.999991, 1)
+cor_normal = Color(0.28235295, 0.28627452, 0.35686275, 1)
+cor_visao = Color(0.07450981, 0, 0.69411767, 1)
 
 [node name="BloqueioLareira" type="StaticBody2D" parent="." unique_id=1800113449]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BloqueioLareira" unique_id=1949036006]
-position = Vector2(521, 150)
+visible = false
+position = Vector2(521, 103)
 shape = SubResource("RectangleShape2D_pcq0i")
 
 [node name="MensagemVisao" type="Label" parent="." unique_id=1699872310]
-visible = false
-offset_left = 268.0
-offset_top = 67.0
-offset_right = 308.0
-offset_bottom = 90.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 312.0
+offset_top = 53.0
+offset_right = 352.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "\"\""
+
+[node name="PassagemLareira" type="StaticBody2D" parent="." unique_id=186216831]
+position = Vector2(535, 142)
+script = ExtResource("11_hv7pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassagemLareira" unique_id=1499036364]
+visible = false
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_s07mc")
+
+[node name="FrentePassagem" type="Sprite2D" parent="." unique_id=1750136798]
+z_index = 5
+position = Vector2(537, 126)
+scale = Vector2(0.09812834, 0.10322363)
+texture = ExtResource("12_hv7pv")
+
+[node name="MusicaDeFundo" type="AudioStreamPlayer2D" parent="." unique_id=2144323277]
+stream = ExtResource("13_ikf75")
+volume_db = 10.179
+autoplay = true

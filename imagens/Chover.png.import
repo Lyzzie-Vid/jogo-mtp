@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qivw1qlbkrh2"
-path="res://.godot/imported/ChatGPT Image 11 de jun. de 2026, 17_03_14.png-65fb2a9d9b1f06474ffabe86a87f3644.ctex"
+uid="uid://ctxfvwnxdpc3m"
+path="res://.godot/imported/Chover.png-4767a7db37c8ef99b0528577e995da99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpritesElisa/ChatGPT Image 11 de jun. de 2026, 17_03_14.png"
-dest_files=["res://.godot/imported/ChatGPT Image 11 de jun. de 2026, 17_03_14.png-65fb2a9d9b1f06474ffabe86a87f3644.ctex"]
+source_file="res://imagens/Chover.png"
+dest_files=["res://.godot/imported/Chover.png-4767a7db37c8ef99b0528577e995da99.ctex"]
 
 [params]
 

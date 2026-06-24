@@ -2247,7 +2247,7 @@ position = Vector2(10.990047, 11.01903)
 scale = Vector2(0.035510473, 0.035869583)
 
 [node name="Camera" parent="." unique_id=695124193 instance=ExtResource("6_pbvoc")]
-position = Vector2(151, 163)
+position = Vector2(144, 37)
 limit_bottom = 120
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=2116025252]

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cpiwcqxuy3jd8"]
+
+[ext_resource type="Shader" uid="uid://bq6gboljr4wk6" path="res://start_menu.gdshader" id="1_ctwoq"]
+[ext_resource type="Script" uid="uid://bfainfuxjnc7m" path="res://start_menu.gd" id="1_ppfnh"]
+[ext_resource type="Texture2D" uid="uid://d3ax2nl5hfilm" path="res://imagens/Botão/BOTAO (1).png" id="1_vpdu5"]
+[ext_resource type="Texture2D" uid="uid://tqbg8orckpc8" path="res://imagens/Botão/BPressed.png" id="2_v2mkm"]
+[ext_resource type="Texture2D" uid="uid://ce1hgv5rs7r8m" path="res://imagens/Botão/BHover.png" id="3_ctwoq"]
+[ext_resource type="FontFile" uid="uid://b46aoiysis0r4" path="res://imagens/Botão/at01.ttf" id="4_v2mkm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppfnh"]
+shader = ExtResource("1_ctwoq")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_7boi2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pgi0o"]
+resource_name = "pause_game"
+length = 1.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_73a2t"]
+resource_name = "resume"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsckg"]
+_data = {
+&"RESET": SubResource("Animation_7boi2"),
+&"pause_game": SubResource("Animation_pgi0o"),
+&"resume": SubResource("Animation_73a2t")
+}
+
+[node name="Start_Menu" type="CanvasLayer" unique_id=552434440]
+script = ExtResource("1_ppfnh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1870689238]
+material = SubResource("ShaderMaterial_ppfnh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_holder" type="VBoxContainer" parent="ColorRect" unique_id=2089873505]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -14.5
+offset_right = 57.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/menu_holder" unique_id=1640776030]
+layout_mode = 2
+
+[node name="resume_btn" type="TextureButton" parent="ColorRect" unique_id=1517128022]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 250.0
+offset_right = 456.0
+offset_bottom = 279.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_vpdu5")
+texture_pressed = ExtResource("2_v2mkm")
+texture_hover = ExtResource("3_ctwoq")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/resume_btn" unique_id=175533548]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.588
+anchor_bottom = 0.79300004
+offset_left = 25.25
+offset_top = 6.5
+offset_right = 8.218002
+offset_bottom = 5.1279984
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("4_v2mkm")
+theme_override_font_sizes/font_size = 12
+text = "voltar ao jogo"
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=204326818]
+libraries/ = SubResource("AnimationLibrary_xsckg")
+autoplay = &"pause_game"

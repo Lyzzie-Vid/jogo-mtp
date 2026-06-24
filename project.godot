@@ -23,6 +23,7 @@ GameState="*uid://dnuwxaq0of5sb"
 
 window/size/viewport_width=1148
 window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [global_group]
 
@@ -83,9 +84,11 @@ visao_espiritual={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/stretch/mode="canvas_items"

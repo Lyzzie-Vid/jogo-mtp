@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-
+var controle_liberado := false  
 
 enum EstadoProtagonista{
 	parado,
@@ -14,7 +14,7 @@ enum EstadoProtagonista{
 	
 }
 
-var SPEED = 300.0
+var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var status: EstadoProtagonista
 
@@ -46,8 +46,8 @@ func fica_andando_agachado():
 	collision_shape.shape.height = 29
 	SPEED = 100.00
 func fica_em_pe():
-	collision_shape.shape.radius = 9
-	collision_shape.shape.height = 47
+	collision_shape.shape.radius = 11
+	collision_shape.shape.height = 42
 	SPEED = 300.00
 
 func estado_parado():
@@ -125,7 +125,10 @@ func move():
 	
 
 func _physics_process(delta: float) -> void:
-	
+	# === PORTÃO (NOVO) — adicione estas 2 linhas no TOPO ===
+	if not controle_liberado:
+		return
+	# =======================================================
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -169,9 +172,33 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		GameState.visao_espiritual_ativa = !GameState.visao_espiritual_ativa
 
-		
-	
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var lanterna: PointLight2D = $PointLight2D
 
+func _process(_delta: float) -> void:
+
+	if sprite.animation == "agachado" \
+	or sprite.animation == "andando_agachado":
+
+		lanterna.visible = true
+
+	else:
+
+		lanterna.visible = false
+	
+# === MÉTODOS NOVOS ===
+
+func tocar(nome: String) -> void:
+	anim.play(nome)
+
+func esperar_fim_animacao() -> void:
+	await anim.animation_finished
+
+func liberar_controle() -> void:
+	controle_liberado = true
+	# Se a sua SM precisar entrar num estado certo ao acordar,
+	# chame aqui o método dela. Ex (adapte ao seu nome real):
+	# mudar_estado("parado")
 		
 	
 	
