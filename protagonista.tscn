@@ -276,7 +276,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"andando_devagar",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -397,8 +397,8 @@ texture_filter = 1
 position = Vector2(0, -0.5)
 scale = Vector2(1, 0.9852941)
 sprite_frames = SubResource("SpriteFrames_p31o1")
-animation = &"andando"
-frame_progress = 0.63703686
+animation = &"andando_devagar"
+frame_progress = 0.8465206
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1467939396]
 visible = false

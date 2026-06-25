@@ -14,12 +14,18 @@ enum EstadoProtagonista{
 	
 }
 
-var SPEED = 200.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var status: EstadoProtagonista
 
 func _ready() -> void:
 	fica_parado()
+	# Trava o controle só se estiver na cena da vila; nas outras, já começa livre
+	if get_tree().current_scene.scene_file_path == "res://cenas/vila.tscn":
+		controle_liberado = false
+	else:
+		controle_liberado = true
+		
 
 
 func fica_parado():
@@ -27,7 +33,10 @@ func fica_parado():
 	anim.play("parado")
 func fica_andando():
 	status = EstadoProtagonista.andando
-	anim.play("andando")
+	if status == EstadoProtagonista.andando and get_tree().current_scene.scene_file_path == "res://cenas/CenaElisa.tscn":
+		anim.play("andando_devagar")
+	else:
+		anim.play("andando")
 func fica_pulando():
 	status = EstadoProtagonista.pulando		
 	anim.play("pulando")
@@ -147,18 +156,15 @@ func _physics_process(delta: float) -> void:
 		EstadoProtagonista.andando_agachado:
 			estado_andando_agachado()		
 
-	move_and_slide()
-
-
-
-
-
-
-
-
 	# Handle jump.
 	if Input.is_action_just_pressed("pulo") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	move_and_slide()
+
+@onready var visão_espiritual: ColorRect = $"../CanvasLayer/visão_espiritual"
+
+
+	
 		
 
 	# Get the input direction and handle the movement/deceleration.
@@ -169,7 +175,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("visao_espiritual"):
-
+		
 		GameState.visao_espiritual_ativa = !GameState.visao_espiritual_ativa
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -189,7 +195,10 @@ func _process(_delta: float) -> void:
 # === MÉTODOS NOVOS ===
 
 func tocar(nome: String) -> void:
-	anim.play(nome)
+	if nome == "andando" and get_tree().current_scene.scene_file_path == "res://cenas/CenaElisa.tscn":
+		anim.play("andando_devagar")
+	else:
+		anim.play(nome)
 
 func esperar_fim_animacao() -> void:
 	await anim.animation_finished
@@ -200,7 +209,4 @@ func liberar_controle() -> void:
 	# chame aqui o método dela. Ex (adapte ao seu nome real):
 	# mudar_estado("parado")
 		
-	
-	
-	
 	

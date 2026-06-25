@@ -7,11 +7,162 @@
 [ext_resource type="Texture2D" uid="uid://dnr4wc3sghsw6" path="res://imagens/the hope.png" id="3_mae5d"]
 [ext_resource type="Texture2D" uid="uid://ctxfvwnxdpc3m" path="res://imagens/Chover.png" id="4_ecwwl"]
 [ext_resource type="Texture2D" uid="uid://dgkn858ga4sn0" path="res://imagens/sairdojogo/Sair.png" id="6_kk3ma"]
-[ext_resource type="Script" uid="uid://v6lekedugly" path="res://menu_inicial.gd" id="7_h1wq0"]
 [ext_resource type="Texture2D" uid="uid://dm6oj5woyarin" path="res://imagens/sairdojogo/SPressed.png" id="7_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://cil3754e4535" path="res://imagens/sairdojogo/SHover.png" id="8_iqepy"]
+[ext_resource type="Texture2D" uid="uid://c0vccbke446tm" path="res://protagonista/IdleNorthw.png" id="11_h1wq0"]
+[ext_resource type="Texture2D" uid="uid://ys6vn2rylbo3" path="res://imagens/animated sprite/fogo.png" id="12_dwrpx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mae5d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwrpx"]
+atlas = ExtResource("11_h1wq0")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7jxm"]
+atlas = ExtResource("11_h1wq0")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jspdm"]
+atlas = ExtResource("11_h1wq0")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxnod"]
+atlas = ExtResource("11_h1wq0")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd0jp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwrpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7jxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jspdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxnod")
+}],
+"loop": true,
+"name": &"parado_olhando",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd0jp"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(0, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ndjb"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(152, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ls4m"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(304, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h80m"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(456, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w25hu"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(608, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td6mg"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(760, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guify"]
+atlas = ExtResource("12_dwrpx")
+region = Rect2(912, 0, 152, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oil5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd0jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ndjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ls4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h80m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w25hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td6mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guify")
+}],
+"loop": true,
+"name": &"fogo",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_dwrpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h1wq0"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g7jxm"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jspdm"]
+_data = {
+&"RESET": SubResource("Animation_dwrpx"),
+&"fade_in": SubResource("Animation_h1wq0"),
+&"fade_out": SubResource("Animation_g7jxm")
+}
 
 [node name="Menu" type="Control" unique_id=2029851869]
 layout_mode = 3
@@ -32,23 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ouk20")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1166665755]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.5437667
-anchor_top = -2.3220727
-anchor_right = 2.8225124
-anchor_bottom = 2.0828753
-offset_left = -497.75574
-offset_top = -264.29688
-offset_right = 497.75586
-offset_bottom = 264.29688
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Começar" type="TextureButton" parent="." unique_id=2018617148]
+[node name="Começar" type="TextureButton" parent="TextureRect" unique_id=2018617148]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,7 +191,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -133.0
-offset_top = 182.99997
+offset_top = 183.0
 offset_right = 5187.0
 offset_bottom = 1963.0
 grow_horizontal = 2
@@ -67,7 +202,7 @@ texture_pressed = ExtResource("3_l48gv")
 texture_hover = ExtResource("4_ecwwl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Começar" unique_id=1360413646]
+[node name="Label" type="Label" parent="TextureRect/Começar" unique_id=1360413646]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,24 +218,7 @@ grow_vertical = 2
 text = "COMEÇAR"
 label_settings = SubResource("LabelSettings_mae5d")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=294986171]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -394.0
-offset_top = -215.0
-offset_right = 407.0
-offset_bottom = -79.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_mae5d")
-script = ExtResource("7_h1wq0")
-
-[node name="Sair" type="TextureButton" parent="." unique_id=67057692]
+[node name="Sair" type="TextureButton" parent="TextureRect" unique_id=67057692]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,5 +236,39 @@ texture_pressed = ExtResource("7_nrnbx")
 texture_hover = ExtResource("8_iqepy")
 stretch_mode = 0
 
-[connection signal="pressed" from="Começar" to="." method="_on_começar_pressed"]
-[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
+[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=294986171]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -215.0
+offset_right = 407.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mae5d")
+
+[node name="protagonista" type="AnimatedSprite2D" parent="TextureRect" unique_id=1086021454]
+position = Vector2(827, 633)
+scale = Vector2(2.3823524, 2.1911762)
+sprite_frames = SubResource("SpriteFrames_gd0jp")
+animation = &"parado_olhando"
+frame_progress = 0.29998067
+
+[node name="fogo" type="AnimatedSprite2D" parent="TextureRect" unique_id=1338253539]
+position = Vector2(937, 510)
+scale = Vector2(2.006579, 1.5493422)
+sprite_frames = SubResource("SpriteFrames_oil5j")
+animation = &"fogo"
+frame_progress = 0.62518287
+
+[node name="inicio" type="AnimationPlayer" parent="TextureRect" unique_id=1446222583]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_jspdm")
+
+[connection signal="pressed" from="TextureRect/Começar" to="." method="_on_começar_pressed"]
+[connection signal="pressed" from="TextureRect/Sair" to="." method="_on_sair_pressed"]

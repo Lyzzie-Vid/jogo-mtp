@@ -1,4 +1,5 @@
 extends Node2D
+@onready var inicio: AnimationPlayer = $inicio
 
 @onready var heroi: CharacterBody2D = $Protagonista
 @onready var pensamento: RichTextLabel = $CanvasLayer/Pensamento
@@ -6,6 +7,8 @@ extends Node2D
 
 func _ready() -> void:
 	pensamento.hide()
+	inicio.play("inicio")
+	await inicio.animation_finished
 	await rodar_cutscene()
 
 func rodar_cutscene() -> void:

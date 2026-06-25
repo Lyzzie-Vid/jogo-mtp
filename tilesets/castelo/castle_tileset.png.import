@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://colxhaqukujjg"
-path="res://.godot/imported/botao.png-6610da9164be2e8a05c02e0ef8d74f7e.ctex"
+uid="uid://6w5d2ufcygh0"
+path="res://.godot/imported/castle_tileset.png-2a84de460b40a47738863f61b2b737d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/botao.png"
-dest_files=["res://.godot/imported/botao.png-6610da9164be2e8a05c02e0ef8d74f7e.ctex"]
+source_file="res://tilesets/castelo/castle_tileset.png"
+dest_files=["res://.godot/imported/castle_tileset.png-2a84de460b40a47738863f61b2b737d8.ctex"]
 
 [params]
 

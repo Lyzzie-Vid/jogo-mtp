@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://fav7yapsilc"]
+
+[ext_resource type="Script" uid="uid://dfcdd8hupges3" path="res://gatilho_de_entrada.gd" id="1_ec84j"]
+
+[node name="gatilho de entrada" type="Area2D" unique_id=1846314722]
+script = ExtResource("1_ec84j")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c18xedtc42p7b" path="res://scripts/passagem_lareira.gd" id="11_hv7pv"]
 [ext_resource type="Texture2D" uid="uid://cy11dcfyttcgw" path="res://SpritesElisa/Captura de tela 2026-06-23 105840.png" id="12_hv7pv"]
 [ext_resource type="AudioStream" uid="uid://g33ej1cojpi1" path="res://imagens/Main Theme ending.mp3" id="13_ikf75"]
+[ext_resource type="PackedScene" uid="uid://cpiwcqxuy3jd8" path="res://start_menu.tscn" id="14_s07mc"]
 
 [sub_resource type="Gradient" id="Gradient_eyhph"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -59,7 +60,7 @@ tile_set = ExtResource("3_pcq0i")
 
 [node name="Camera2D" parent="." unique_id=537885009 instance=ExtResource("3_3u7cg")]
 position = Vector2(-188.92151, 106.256165)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(3, 3)
 
 [node name="candelabro" type="PointLight2D" parent="." unique_id=1800552897]
 modulate = Color(1, 1, 1, 0.08627451)
@@ -175,3 +176,5 @@ texture = ExtResource("12_hv7pv")
 stream = ExtResource("13_ikf75")
 volume_db = 10.179
 autoplay = true
+
+[node name="Start_Menu" parent="." unique_id=552434440 instance=ExtResource("14_s07mc")]

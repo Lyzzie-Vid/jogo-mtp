@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://d3ax2nl5hfilm" path="res://imagens/Botão/BOTAO (1).png" id="1_vpdu5"]
 [ext_resource type="Texture2D" uid="uid://tqbg8orckpc8" path="res://imagens/Botão/BPressed.png" id="2_v2mkm"]
 [ext_resource type="Texture2D" uid="uid://ce1hgv5rs7r8m" path="res://imagens/Botão/BHover.png" id="3_ctwoq"]
-[ext_resource type="FontFile" uid="uid://b46aoiysis0r4" path="res://imagens/Botão/at01.ttf" id="4_v2mkm"]
+[ext_resource type="Texture2D" uid="uid://d4g4d0pl5nd4v" path="res://imagens/voltar ao jogo.png" id="6_ppfnh"]
+[ext_resource type="Texture2D" uid="uid://bmgql2cd8uqp7" path="res://imagens/voltar ao menu.png" id="7_7boi2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppfnh"]
 shader = ExtResource("1_ctwoq")
@@ -36,7 +37,7 @@ tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.13333334, 1.0333333),
+"times": PackedFloat32Array(0, 1.0333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -66,6 +67,7 @@ _data = {
 }
 
 [node name="Start_Menu" type="CanvasLayer" unique_id=552434440]
+process_mode = 3
 script = ExtResource("1_ppfnh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1870689238]
@@ -95,33 +97,49 @@ layout_mode = 2
 
 [node name="resume_btn" type="TextureButton" parent="ColorRect" unique_id=1517128022]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 250.0
-offset_right = 456.0
-offset_bottom = 279.0
+offset_left = 704.0
+offset_top = 356.0
+offset_right = 818.0
+offset_bottom = 385.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("1_vpdu5")
 texture_pressed = ExtResource("2_v2mkm")
 texture_hover = ExtResource("3_ctwoq")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="ColorRect/resume_btn" unique_id=175533548]
-texture_filter = 1
+[node name="TextureRect" type="TextureRect" parent="ColorRect/resume_btn" unique_id=358657469]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.588
-anchor_bottom = 0.79300004
-offset_left = 25.25
-offset_top = 6.5
-offset_right = 8.218002
-offset_bottom = 5.1279984
-scale = Vector2(1.5, 1.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("4_v2mkm")
-theme_override_font_sizes/font_size = 12
-text = "voltar ao jogo"
+offset_left = 18.5
+offset_top = -8.750008
+offset_right = 1554.5
+offset_bottom = 1015.25
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_ppfnh")
+
+[node name="VoltarMenu" type="TextureButton" parent="ColorRect" unique_id=1988488527]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 486.0
+offset_right = 1153.0
+offset_bottom = 603.0
+texture_normal = ExtResource("1_vpdu5")
+texture_pressed = ExtResource("2_v2mkm")
+texture_hover = ExtResource("3_ctwoq")
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VoltarMenu" unique_id=1350229206]
+layout_mode = 0
+offset_left = 132.99998
+offset_top = 37.999996
+offset_right = 4032.999
+offset_bottom = 898.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_7boi2")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=204326818]
 libraries/ = SubResource("AnimationLibrary_xsckg")
 autoplay = &"pause_game"
+
+[connection signal="pressed" from="ColorRect/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="ColorRect/VoltarMenu" to="." method="_on_texture_button_pressed"]
