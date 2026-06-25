@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://r7ywmkl8a08u"
+path="res://.godot/imported/Som pulo cima.wav-10d3f9246be83d1f8ad87c43f6e3c837.sample"
+
+[deps]
+
+source_file="res://imagens/Som pulo cima.wav"
+dest_files=["res://.godot/imported/Som pulo cima.wav-10d3f9246be83d1f8ad87c43f6e3c837.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

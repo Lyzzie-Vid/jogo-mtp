@@ -1,5 +1,9 @@
 extends Area2D
 @onready var label: Label = $LabelInteracao
+@onready var animacao: AnimationPlayer = $"../animacao"
+@onready var talkbar_do_mapa: Sprite2D = $"../CanvasLayer2/talkbar_do_mapa"
+
+
 var player_dentro: bool = false
 var coletado: bool = false
 func _ready() -> void:
@@ -22,8 +26,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func coletar_livro() -> void:
 	coletado = true
 	GameState.mapa_desbloqueado = true
-	label.text = "Você achou um mapa! Aperte M para consultar"
+	
+	label.text = "Você achou um mapa!"
 	
 	# Aguarda 2 segundos e some
 	await get_tree().create_timer(2.0).timeout
+	talkbar_do_mapa.visible = true
+	await get_tree().create_timer(4.0).timeout
+	talkbar_do_mapa.visible = false
 	queue_free()

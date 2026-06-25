@@ -1,6 +1,10 @@
 extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var som_pulo: AudioStreamPlayer2D = $som_pulo
+@onready var som_correndo: AudioStreamPlayer2D = $som_correndo
+
+var ta_correndo = false
 
 var controle_liberado := false  
 
@@ -19,6 +23,7 @@ const JUMP_VELOCITY = -400.0
 var status: EstadoProtagonista
 
 func _ready() -> void:
+
 	fica_parado()
 	# Trava o controle só se estiver na cena da vila; nas outras, já começa livre
 	if get_tree().current_scene.scene_file_path == "res://cenas/vila.tscn":
@@ -31,12 +36,17 @@ func _ready() -> void:
 func fica_parado():
 	status = EstadoProtagonista.parado
 	anim.play("parado")
+	som_correndo.stop()
 func fica_andando():
 	status = EstadoProtagonista.andando
+
+	som_correndo.play()
 	if status == EstadoProtagonista.andando and get_tree().current_scene.scene_file_path == "res://cenas/CenaElisa.tscn":
 		anim.play("andando_devagar")
+		var _SPEED = 150.0
 	else:
 		anim.play("andando")
+		var _SPEED = 300.0
 func fica_pulando():
 	status = EstadoProtagonista.pulando		
 	anim.play("pulando")
@@ -66,6 +76,7 @@ func estado_parado():
 		return
 	if Input.is_action_just_pressed("pulo"):	
 		fica_pulando()
+		som_pulo.play()
 		return
 	if velocity.y > 0 and not is_on_floor():	
 		fica_caindo()
@@ -78,6 +89,7 @@ func estado_andando():
 		fica_parado()
 		return
 	if Input.is_action_just_pressed("pulo"):	
+		som_pulo.play()
 		fica_pulando()
 		return
 	if velocity.y > 0 and not is_on_floor():	
@@ -135,6 +147,7 @@ func move():
 
 func _physics_process(delta: float) -> void:
 	# === PORTÃO (NOVO) — adicione estas 2 linhas no TOPO ===
+	
 	if not controle_liberado:
 		return
 	# =======================================================
@@ -161,7 +174,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	move_and_slide()
 
-@onready var visão_espiritual: ColorRect = $"../CanvasLayer/visão_espiritual"
+#@onready var visão_espiritual: ColorRect = $"../CanvasLayer/visão_espiritual"
 
 
 	
@@ -175,7 +188,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("visao_espiritual"):
-		
+
 		GameState.visao_espiritual_ativa = !GameState.visao_espiritual_ativa
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D

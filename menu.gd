@@ -4,6 +4,7 @@ extends Control
 @onready var inicio: AnimationPlayer = $TextureRect/inicio
 @onready var fogo: AnimatedSprite2D = $TextureRect/fogo
 
+@onready var musica_menu: AudioStreamPlayer2D = $musica_menu
 
 
 
@@ -11,6 +12,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	musica_menu.play()
 	inicio.play_backwards("fade_out")
 	protagonista.play("parado_olhando")
 	fogo.play("fogo")

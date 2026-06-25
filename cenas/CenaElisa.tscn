@@ -11,9 +11,15 @@
 [ext_resource type="Script" uid="uid://d0phthlmc2v18" path="res://scripts/lareira.gd" id="7_pcq0i"]
 [ext_resource type="Script" uid="uid://blxmkd2qo4u7o" path="res://scripts/visao_espiritual.gd" id="8_mcv84"]
 [ext_resource type="Script" uid="uid://c18xedtc42p7b" path="res://scripts/passagem_lareira.gd" id="11_hv7pv"]
+[ext_resource type="Script" uid="uid://b8ml0iii4sste" path="res://cenas/mensagem_visao.gd" id="11_njbu6"]
 [ext_resource type="Texture2D" uid="uid://cy11dcfyttcgw" path="res://SpritesElisa/Captura de tela 2026-06-23 105840.png" id="12_hv7pv"]
 [ext_resource type="AudioStream" uid="uid://g33ej1cojpi1" path="res://imagens/Main Theme ending.mp3" id="13_ikf75"]
 [ext_resource type="PackedScene" uid="uid://cpiwcqxuy3jd8" path="res://start_menu.tscn" id="14_s07mc"]
+[ext_resource type="Script" uid="uid://c8sb8qjpridxg" path="res://cenas/talk_bar.gd" id="15_74fuh"]
+[ext_resource type="Texture2D" uid="uid://c70xbvnvxcc4f" path="res://imagens/texto_final1.png" id="17_njbu6"]
+[ext_resource type="Texture2D" uid="uid://coccwd4s0nw8n" path="res://imagens/efeito_visao.png" id="18_dve4i"]
+[ext_resource type="Script" uid="uid://dcdn3qpmm0jkw" path="res://cenas/canvas_layer_2.gd" id="19_ypoj1"]
+[ext_resource type="Texture2D" uid="uid://sycqh3jjfiu3" path="res://imagens/texto_final2.png" id="20_3mlly"]
 
 [sub_resource type="Gradient" id="Gradient_eyhph"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -45,6 +51,46 @@ size = Vector2(12, 118)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s07mc"]
 size = Vector2(14, 29)
 
+[sub_resource type="Animation" id="Animation_njbu6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Talkbar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ypoj1"]
+resource_name = "animacao_fala_do_mapa"
+
+[sub_resource type="Animation" id="Animation_dve4i"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Talkbar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0kpa"]
+_data = {
+&"RESET": SubResource("Animation_njbu6"),
+&"animacao_fala_do_mapa": SubResource("Animation_ypoj1"),
+&"fade_in": SubResource("Animation_dve4i")
+}
+
 [node name="DentrodaCasa" type="Node2D" unique_id=296894153]
 script = ExtResource("1_3u7cg")
 
@@ -61,6 +107,7 @@ tile_set = ExtResource("3_pcq0i")
 [node name="Camera2D" parent="." unique_id=537885009 instance=ExtResource("3_3u7cg")]
 position = Vector2(-188.92151, 106.256165)
 zoom = Vector2(3, 3)
+position_smoothing_enabled = false
 
 [node name="candelabro" type="PointLight2D" parent="." unique_id=1800552897]
 modulate = Color(1, 1, 1, 0.08627451)
@@ -156,6 +203,7 @@ offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "\"\""
+script = ExtResource("11_njbu6")
 
 [node name="PassagemLareira" type="StaticBody2D" parent="." unique_id=186216831]
 position = Vector2(535, 142)
@@ -173,8 +221,42 @@ scale = Vector2(0.09812834, 0.10322363)
 texture = ExtResource("12_hv7pv")
 
 [node name="MusicaDeFundo" type="AudioStreamPlayer2D" parent="." unique_id=2144323277]
+position = Vector2(3, 0)
 stream = ExtResource("13_ikf75")
-volume_db = 10.179
+volume_db = -12.361
 autoplay = true
 
 [node name="Start_Menu" parent="." unique_id=552434440 instance=ExtResource("14_s07mc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1488627564]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+script = ExtResource("15_74fuh")
+
+[node name="Talkbar" type="Sprite2D" parent="CanvasLayer" unique_id=1537206125]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+position = Vector2(46.333332, 64.666664)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_njbu6")
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=1807375661]
+libraries/ = SubResource("AnimationLibrary_h0kpa")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=963161986]
+offset_left = -2286.0002
+offset_top = -301.00003
+offset_right = -678.5005
+offset_bottom = 723.0
+scale = Vector2(0.42, 0.42)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("18_dve4i")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1900692695]
+script = ExtResource("19_ypoj1")
+
+[node name="talkbar_do_mapa" type="Sprite2D" parent="CanvasLayer2" unique_id=78176198]
+position = Vector2(925, 182)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("20_3mlly")

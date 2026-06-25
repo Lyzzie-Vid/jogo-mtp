@@ -9,13 +9,12 @@ var abrindo = false
 
 func _process(_delta):
 	
-	if player_na_porta and Input.is_action_just_pressed("ação") and !abrindo:
+	if player_na_porta and Input.is_action_pressed("ação") and not abrindo:
 
 		abrindo = true
-
 		porta.play("porta abrindo")
-
 		await get_tree().create_timer(1.0).timeout
+		GameState.visao_espiritual_ativa = false
 
 		get_tree().change_scene_to_file("res://cenas/" + next_level + ".tscn")
 

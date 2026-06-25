@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cil3754e4535" path="res://imagens/sairdojogo/SHover.png" id="8_iqepy"]
 [ext_resource type="Texture2D" uid="uid://c0vccbke446tm" path="res://protagonista/IdleNorthw.png" id="11_h1wq0"]
 [ext_resource type="Texture2D" uid="uid://ys6vn2rylbo3" path="res://imagens/animated sprite/fogo.png" id="12_dwrpx"]
+[ext_resource type="AudioStream" uid="uid://bk8m0qj4n37wt" path="res://imagens/Teste (Orquestra).mp3" id="12_g7jxm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mae5d"]
 
@@ -269,6 +270,9 @@ frame_progress = 0.62518287
 [node name="inicio" type="AnimationPlayer" parent="TextureRect" unique_id=1446222583]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_jspdm")
+
+[node name="musica_menu" type="AudioStreamPlayer2D" parent="." unique_id=1573932223]
+stream = ExtResource("12_g7jxm")
 
 [connection signal="pressed" from="TextureRect/Começar" to="." method="_on_começar_pressed"]
 [connection signal="pressed" from="TextureRect/Sair" to="." method="_on_sair_pressed"]

@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://2p2e643oaxaf" path="res://protagonista/andando_devagar.png" id="4_wsr85"]
 [ext_resource type="Texture2D" uid="uid://1ot16em8o66j" path="res://protagonista/comer_maca.png" id="5_gb6jw"]
 [ext_resource type="Texture2D" uid="uid://bcud03cikjdyx" path="res://protagonista/pegar_lanterna.png" id="7_wsr85"]
+[ext_resource type="AudioStream" uid="uid://r7ywmkl8a08u" path="res://imagens/Som pulo cima.wav" id="9_vdmr0"]
+[ext_resource type="AudioStream" uid="uid://dv06va2udtm50" path="res://imagens/Personagem correndo.wav" id="10_coxc2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xl4ta"]
 radius = 11.0
@@ -406,3 +408,9 @@ position = Vector2(1.0000019, 3.4999971)
 scale = Vector2(1.4687499, 1.2968751)
 color = Color(0.9607843, 0.8627451, 0.42352942, 1)
 texture = SubResource("GradientTexture2D_5kdpw")
+
+[node name="som_pulo" type="AudioStreamPlayer2D" parent="." unique_id=1610161639]
+stream = ExtResource("9_vdmr0")
+
+[node name="som_correndo" type="AudioStreamPlayer2D" parent="." unique_id=1938585577]
+stream = ExtResource("10_coxc2")
