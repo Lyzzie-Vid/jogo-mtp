@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://coccwd4s0nw8n" path="res://imagens/efeito_visao.png" id="18_dve4i"]
 [ext_resource type="Script" uid="uid://dcdn3qpmm0jkw" path="res://cenas/canvas_layer_2.gd" id="19_ypoj1"]
 [ext_resource type="Texture2D" uid="uid://sycqh3jjfiu3" path="res://imagens/texto_final2.png" id="20_3mlly"]
+[ext_resource type="Texture2D" uid="uid://vqrbjgoctqjv" path="res://SpritesElisa/Captura de tela 2026-06-25 192620.png" id="21_3mlly"]
 
 [sub_resource type="Gradient" id="Gradient_eyhph"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -90,6 +91,9 @@ _data = {
 &"animacao_fala_do_mapa": SubResource("Animation_ypoj1"),
 &"fade_in": SubResource("Animation_dve4i")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mlly"]
+size = Vector2(20, 176)
 
 [node name="DentrodaCasa" type="Node2D" unique_id=296894153]
 script = ExtResource("1_3u7cg")
@@ -181,7 +185,7 @@ visible = false
 color = Color(0.28235295, 0.28627452, 0.35686275, 1)
 script = ExtResource("8_mcv84")
 cor_normal = Color(0.28235295, 0.28627452, 0.35686275, 1)
-cor_visao = Color(0.07450981, 0, 0.69411767, 1)
+cor_visao = Color(0.05954521, 9.62615e-08, 0.6075596, 1)
 
 [node name="BloqueioLareira" type="StaticBody2D" parent="." unique_id=1800113449]
 
@@ -221,10 +225,12 @@ scale = Vector2(0.09812834, 0.10322363)
 texture = ExtResource("12_hv7pv")
 
 [node name="MusicaDeFundo" type="AudioStreamPlayer2D" parent="." unique_id=2144323277]
+process_mode = 3
 position = Vector2(3, 0)
 stream = ExtResource("13_ikf75")
-volume_db = -12.361
+volume_db = -19.511
 autoplay = true
+parameters/looping = true
 
 [node name="Start_Menu" parent="." unique_id=552434440 instance=ExtResource("14_s07mc")]
 
@@ -257,6 +263,25 @@ texture = ExtResource("18_dve4i")
 script = ExtResource("19_ypoj1")
 
 [node name="talkbar_do_mapa" type="Sprite2D" parent="CanvasLayer2" unique_id=78176198]
+visible = false
 position = Vector2(925, 182)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("20_3mlly")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=584993927]
+z_index = 6
+position = Vector2(542, 169.72664)
+scale = Vector2(0.11926604, 0.10229272)
+texture = ExtResource("21_3mlly")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2109221688]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1525649772]
+position = Vector2(893, 88)
+shape = SubResource("RectangleShape2D_3mlly")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=432996664]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=79327792]
+position = Vector2(535, 32)
+shape = SubResource("RectangleShape2D_3mlly")

@@ -40,13 +40,11 @@ func fica_parado():
 func fica_andando():
 	status = EstadoProtagonista.andando
 
-	som_correndo.play()
+	#som_correndo.play()
 	if status == EstadoProtagonista.andando and get_tree().current_scene.scene_file_path == "res://cenas/CenaElisa.tscn":
 		anim.play("andando_devagar")
-		var _SPEED = 150.0
 	else:
 		anim.play("andando")
-		var _SPEED = 300.0
 func fica_pulando():
 	status = EstadoProtagonista.pulando		
 	anim.play("pulando")
@@ -92,6 +90,8 @@ func estado_andando():
 		som_pulo.play()
 		fica_pulando()
 		return
+	if velocity.x > 0 and get_tree().current_scene.scene_file_path == "res://cenas/CenaElisa.tscn":
+		SPEED = 150
 	if velocity.y > 0 and not is_on_floor():	
 		fica_caindo()
 		return	

@@ -1,7 +1,9 @@
 extends Area2D
-@onready var label: Label = $LabelInteracao
-@onready var animacao: AnimationPlayer = $"../animacao"
-@onready var talkbar_do_mapa: Sprite2D = $"../CanvasLayer2/talkbar_do_mapa"
+@onready var animacao: AnimationPlayer = $"../../../../animacao"
+
+@onready var label: Label = $"../../../../CanvasLayer2/mensagem"
+
+@onready var tab: Sprite2D = $"../../../../CanvasLayer2/tab"
 
 
 var player_dentro: bool = false
@@ -27,11 +29,11 @@ func coletar_livro() -> void:
 	coletado = true
 	GameState.mapa_desbloqueado = true
 	
-	label.text = "Você achou um livro com um mapa!"
+	label.text = "Você achou uma chave!"
 	
-	# Aguarda 2 segundos e some
-	await get_tree().create_timer(2.0).timeout
-	talkbar_do_mapa.visible = true
-	await get_tree().create_timer(4.0).timeout
-	talkbar_do_mapa.visible = false
+	# Aguarda 1 segundo e some
+	await get_tree().create_timer(1.0).timeout
+	tab.visible = true
+	await get_tree().create_timer(1.0).timeout
+	tab.visible = false
 	queue_free()

@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_visao_mudou(ativa: bool) -> void:
 	_aplicar_estado(ativa)
-	chão_falso.collision_enabled = !chão_falso.collision_enabled 
+	chão_falso.collision_enabled = ativa
 func _aplicar_estado(ativa: bool) -> void:
 	visible = ativa
 	collision_shape.set_deferred("disabled", not ativa)

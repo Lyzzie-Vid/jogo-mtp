@@ -9,7 +9,7 @@ var abrindo = false
 
 func _process(_delta):
 	
-	if player_na_porta and Input.is_action_pressed("ação") and not abrindo:
+	if player_na_porta and not abrindo:
 
 		abrindo = true
 		porta.play("porta abrindo")

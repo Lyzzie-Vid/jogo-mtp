@@ -90,13 +90,12 @@ func continuar_cutscene_lobo() -> void:
 	heroi.tocar("parado")
 	GameState.visao_espiritual_ativa = true
 	await get_tree().create_timer(1).timeout
-	mostrar_pensamento("Aperte W, A, S, D para correr",2.5)
+	mostrar_pensamento("Aperte WASD ou use as setas para correr",2.5)
 	await get_tree().create_timer(2.0).timeout
 
 	# 5) lobo aparece atrás, sentado
 	lobo.visible = true
 	#barulho de rosnado do lobo
-	await get_tree().create_timer(1).timeout
 	
 	
 	# 6) lobo se levanta
@@ -128,19 +127,21 @@ func _process(_delta: float) -> void:
 	if not _lobo_perseguindo:
 		return
 
-	var heroi_andando : bool = heroi.sprite.animation == "andando"
+	var dist_x: float = heroi.global_position.x - lobo.global_position.x
 
-	if heroi_andando:
-		# herói se movendo → lobo corre atrás
+	# se ainda há distância horizontal pra cobrir → persegue (mesmo se o herói pular)
+	if abs(dist_x) > 8.0:
 		if lobo.animation != "correndo":
 			lobo.play("correndo")
-		var dir := (heroi.global_position - lobo.global_position).normalized()
-		lobo.global_position += dir * velocidade_lobo * _delta
-		lobo.flip_h = dir.x < 0
+		# move SÓ no eixo X — o lobo nunca sobe junto no pulo
+		var passo: float = sign(dist_x) * velocidade_lobo * _delta
+		lobo.global_position.x += passo
+		lobo.flip_h = dist_x < 0
 	else:
-		# herói parado → lobo ataca (a animação avança um pouco)
-		if lobo.animation != "parado":
-			lobo.play("parado")
+		_lobo_perseguindo = false
+		get_tree().reload_current_scene()
+		GameState.visao_espiritual_ativa = false
+		return
 
 
 # ============================================================

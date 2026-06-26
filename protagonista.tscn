@@ -391,7 +391,6 @@ fill_to = Vector2(1, 0.5)
 script = ExtResource("1_38q5f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902469359]
-visible = false
 shape = SubResource("CapsuleShape2D_xl4ta")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=580267906]

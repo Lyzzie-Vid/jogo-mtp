@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://gehg7q5upc7p"]
 
 [ext_resource type="Script" uid="uid://bjjjrtms47dlq" path="res://scripts/mapa_ui.gd" id="1_he67d"]
-[ext_resource type="Texture2D" uid="uid://dmr8doc8cltly" path="res://SpritesElisa/ChatGPT Image 23 de jun. de 2026, 07_54_32.png" id="2_ti2if"]
+[ext_resource type="Texture2D" uid="uid://c864mra87m7ls" path="res://SpritesElisa/Locais onde as pessoas desapareceram.png" id="2_ti2if"]
+[ext_resource type="Script" uid="uid://ba1y7lpn63gd3" path="res://scripts/button.gd" id="3_2r8i1"]
 
 [node name="MapaUI" type="CanvasLayer" unique_id=377553285]
 process_mode = 3
@@ -12,10 +13,38 @@ script = ExtResource("1_he67d")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -759.0
+offset_top = -434.0
+offset_right = -475.0
+offset_bottom = -228.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1942342606]
 layout_mode = 2
 texture = ExtResource("2_ti2if")
 stretch_mode = 5
+
+[node name="Button" type="Button" parent="." unique_id=1567686142]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.43800002
+anchor_right = 0.596
+anchor_bottom = 0.43800002
+offset_left = -54.208008
+offset_top = -46.824005
+offset_right = 63.791992
+offset_bottom = 47.175995
+flat = true
+script = ExtResource("3_2r8i1")
+
+[node name="Label" type="Label" parent="Button" unique_id=1079186776]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Masmorra"
